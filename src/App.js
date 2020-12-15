@@ -1,25 +1,25 @@
-import logo from './logo.svg';
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import './App.css';
 
-function App() {
+import RandomNum from './Components/RandomNum';
+import RandomName from './Components/RandomName';
+import ListeMaudite from './Components/ListeMaudite';
+import MiniJeux from './Components/MiniJeux';
+import Roulette from './Components/Roulette';
+import QuiRap from './Components/QuiRap';
+
+
+export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+        <Switch>
+          <Route component={MiniJeux} path="/" exact />
+          <Route component={RandomNum} path="/random-nombre" />
+          <Route component={RandomName} path="/random-nom" />
+          <Route component={ListeMaudite} path="/liste-maudite" />
+          <Route component={Roulette} path="/roulette" />
+          <Route component={QuiRap} path="/qui-rap" />
+        </Switch>
+      </Router>
   );
 }
-
-export default App;
